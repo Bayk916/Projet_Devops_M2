@@ -40,8 +40,8 @@ pipeline {
       }
     }
     stage('Deploy K8s') {
-  steps{
-    script {
+      steps{
+	   script {
       def configs = readFile 'deployment-apache.yml'
       def services = readFile 'service-apache.yml'
 
@@ -50,9 +50,9 @@ pipeline {
       sh 'kubectl config use-context minikube'
       sh "echo '${configs}' | kubectl apply -f -"
       sh "echo '${services}' | kubectl apply -f -"
+      }
+				}
     }
-  }
 }
-
   
 }
