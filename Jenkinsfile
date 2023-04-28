@@ -41,8 +41,9 @@ pipeline {
     }
     stage('Deploy K8s') {
       steps{
-	   script {
-        kubernetesDeploy(configs: "deployment-apache.yml", "service-apache.yml")
+	   container('kubectl') {
+              sh "kubectl apply -f ./kubernetes/deployment-apache.yml"
+	      sh "kubectl apply -f ./kubernetes/service-apache.yml"
       }
 				}
     }
