@@ -50,7 +50,6 @@ pipeline {
       sh 'kubectl config use-context minikube'
       sh "echo '${configs}' | kubectl apply -f -"
       sh "echo '${services}' | kubectl apply -f -"
-      sh 'docker run -p 80:80 nico916/projet-m2:latest'
       }
 				}
     }
