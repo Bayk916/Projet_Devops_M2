@@ -15,7 +15,7 @@ spec:
         app: apache-pod
     spec:
       containers:
-      - image: goku95/projet-devops-m2:latest
+      - image: nico916/projet-m2:latest
         name: hello-cont
         ports:
         - containerPort: 49160
