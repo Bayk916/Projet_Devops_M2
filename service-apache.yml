@@ -7,6 +7,4 @@ spec:
     app: apache-pod
   ports:
     - protocol: TCP
-      port: 49160
-      targetPort: 80
-  type: LoadBalancer
+      port: 80
