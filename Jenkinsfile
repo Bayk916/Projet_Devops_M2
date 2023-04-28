@@ -45,7 +45,7 @@ pipeline {
       def configs = readFile 'deployment-apache.yml'
       def services = readFile 'service-apache.yml'
 
-      sh 'minikube start --force'
+      sh 'minikube start'
       sh 'minikube status'
       sh 'kubectl config use-context minikube'
       sh "echo '${configs}' | kubectl apply -f -"
