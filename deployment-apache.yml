@@ -18,4 +18,4 @@ spec:
       - image: nico916/projet-m2:latest
         name: hello-cont
         ports:
-        - containerPort: 49160
+        - containerPort: 80
