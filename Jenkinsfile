@@ -42,8 +42,6 @@ pipeline {
     stage('Deploy to Kubernetes') {
       steps{
 	   script {
-            sh "kubectl config use-context minikube"
-            
             sh "kubectl apply -f deployment-apache.yml"
             sh "kubectl apply -f service-apache.yml"
         
