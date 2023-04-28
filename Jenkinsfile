@@ -39,11 +39,14 @@ pipeline {
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
-    stage('Deploy K8s') {
+    stage('Deploy to Kubernetes') {
       steps{
-	   container('kubectl') {
-              sh "kubectl apply -f ./kubernetes/deployment-apache.yml"
-	      sh "kubectl apply -f ./kubernetes/service-apache.yml"
+	   script {
+            sh "kubectl config use-context minikube"
+            
+            sh "kubectl apply -f deployment-apache.yml"
+            sh "kubectl apply -f service-apache.yml"
+        
       }
 				}
     }
